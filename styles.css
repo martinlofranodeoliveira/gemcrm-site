@@ -107,6 +107,7 @@ svg {
 }
 
 .site-header {
+  --header-height: 82px;
   position: fixed;
   inset: 0 0 auto;
   z-index: 100;
@@ -123,9 +124,15 @@ svg {
   backdrop-filter: blur(18px);
 }
 
+.site-header.menu-active {
+  background: var(--ink);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
 .header-inner {
   display: flex;
-  min-height: 82px;
+  min-height: var(--header-height, 82px);
   align-items: center;
   justify-content: space-between;
   gap: 32px;
@@ -1565,6 +1572,89 @@ svg {
   font-weight: 800;
 }
 
+.company-section {
+  border-top: 1px solid rgba(7, 17, 15, 0.08);
+  background: #e9efe4;
+}
+
+.company-layout {
+  display: grid;
+  align-items: start;
+  gap: 92px;
+  grid-template-columns: minmax(0, 0.88fr) minmax(500px, 1.12fr);
+}
+
+.company-copy h2 {
+  max-width: 620px;
+  margin: 0;
+  font-size: clamp(44px, 4.9vw, 68px);
+  font-weight: 600;
+  letter-spacing: -0.065em;
+  line-height: 0.99;
+}
+
+.company-copy > p {
+  max-width: 590px;
+  margin: 28px 0 0;
+  color: #53605b;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.company-actions {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-top: 38px;
+}
+
+.company-link {
+  margin-top: 0;
+  border-color: rgba(7, 17, 15, 0.25);
+  color: #2f6c56;
+}
+
+.company-facts {
+  display: grid;
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(7, 17, 15, 0.12);
+  border-radius: 26px;
+  background: rgba(7, 17, 15, 0.12);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+}
+
+.company-facts > li {
+  min-height: 176px;
+  padding: 28px;
+  background: rgba(250, 249, 244, 0.9);
+}
+
+.company-facts span {
+  color: #76807c;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.company-facts p {
+  margin: 20px 0 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.company-facts a {
+  color: #2f6c56;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .build-section {
   padding-top: 32px;
   background: var(--cream);
@@ -1857,6 +1947,57 @@ svg {
   text-underline-offset: 3px;
 }
 
+.about-facts {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 54px;
+  padding: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+}
+
+.about-facts > li {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--cream);
+}
+
+.about-facts span {
+  color: #76807c;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.about-facts p {
+  margin: 10px 0 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.65;
+}
+
+.about-cta {
+  padding: 28px;
+  border-radius: 20px;
+  background: var(--forest);
+  color: var(--cream);
+}
+
+.about-cta h2 {
+  color: var(--cream);
+}
+
+.about-cta p {
+  color: rgba(243, 240, 231, 0.66);
+}
+
+.about-cta a {
+  color: var(--lime);
+}
+
 .changelog-entry {
   position: relative;
   margin-top: 0 !important;
@@ -1973,12 +2114,18 @@ svg {
   }
 
   .mobile-menu {
-    position: fixed;
-    inset: 82px 0 0;
+    position: absolute;
+    inset: var(--header-height) 0 auto;
     display: flex;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    height: calc(100dvh - var(--header-height));
     padding: 34px 24px;
-    background: rgba(7, 17, 15, 0.98);
+    overflow-y: auto;
+    background: var(--ink);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
     flex-direction: column;
+    overscroll-behavior: contain;
   }
 
   .mobile-menu[hidden] {
@@ -2017,7 +2164,8 @@ svg {
 
   .flow-layout,
   .split-heading,
-  .cta-layout {
+  .cta-layout,
+  .company-layout {
     gap: 60px;
     grid-template-columns: 1fr;
   }
@@ -2045,13 +2193,13 @@ svg {
 }
 
 @media (max-width: 640px) {
+  .site-header {
+    --header-height: 72px;
+  }
+
   .shell,
   .legal-content {
     width: min(100% - 32px, 1200px);
-  }
-
-  .header-inner {
-    min-height: 72px;
   }
 
   .hero-grid {
@@ -2196,6 +2344,28 @@ svg {
   .build-actions {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .company-copy h2 {
+    font-size: 44px;
+  }
+
+  .company-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .company-link {
+    align-self: flex-start;
+  }
+
+  .company-facts,
+  .about-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .company-facts > li {
+    min-height: auto;
   }
 
   .footer-grid {

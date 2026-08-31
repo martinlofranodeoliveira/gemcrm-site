@@ -43,24 +43,48 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "GemCRM",
-        "url": "https://gemcrm.io/",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web",
-        "description": "CRM omnichannel com inbox, pipeline, automações, governança e inteligência configurável para operações comerciais.",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "BRL",
-          "description": "Acesso inicial gratuito durante a fase de evolução do produto."
-        },
-        "provider": {
-          "@type": "Organization",
-          "name": "GemCRM",
-          "url": "https://gemcrm.io/",
-          "email": "martin@gemcrm.io"
-        }
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://gemcrm.io/#organization",
+            "name": "GemCRM",
+            "url": "https://gemcrm.io/",
+            "email": "martin@gemcrm.io",
+            "description": "Startup brasileira de tecnologia que desenvolve um CRM omnichannel para operações comerciais.",
+            "foundingLocation": {
+              "@type": "Country",
+              "name": "Brasil"
+            },
+            "founder": {
+              "@type": "Person",
+              "name": "Martin Lofrano de Oliveira",
+              "jobTitle": "Fundador e responsável pelo produto"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "contato comercial",
+              "email": "martin@gemcrm.io",
+              "availableLanguage": "Portuguese"
+            }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "GemCRM",
+            "url": "https://gemcrm.io/",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "description": "CRM omnichannel com inbox, pipeline, automações, governança e inteligência configurável para operações comerciais.",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "BRL",
+              "description": "Plano Free para validação inicial, com opções comerciais assistidas."
+            },
+            "provider": {
+              "@id": "https://gemcrm.io/#organization"
+            }
+          }
+        ]
       }
     </script>
 
@@ -84,6 +108,7 @@
           <a href="#produto">Produto</a>
           <a href="#fluxo">Como funciona</a>
           <a href="#plataforma">Plataforma</a>
+          <a href="#sobre">Sobre</a>
           <a href="./changelog/">Evolução</a>
         </nav>
 
@@ -104,6 +129,7 @@
         <a href="#produto">Produto</a>
         <a href="#fluxo">Como funciona</a>
         <a href="#plataforma">Plataforma</a>
+        <a href="#sobre">Sobre</a>
         <a href="./changelog/">Evolução</a>
         <a href="mailto:martin@gemcrm.io">Falar com a gente</a>
       </nav>
@@ -445,6 +471,51 @@
         </div>
       </section>
 
+      <section class="section company-section" id="sobre">
+        <div class="shell company-layout">
+          <div class="company-copy reveal">
+            <span class="kicker">A startup</span>
+            <h2>Uma empresa brasileira construindo o contexto comercial que falta.</h2>
+            <p>
+              A GemCRM é uma startup de tecnologia que desenvolve um software B2B para conectar
+              atendimento, vendas e gestão. Não operamos em modo oculto: o produto, o estágio e a
+              evolução estão documentados publicamente neste domínio.
+            </p>
+            <div class="company-actions">
+              <a class="button button-primary" href="./about/">Conhecer a GemCRM</a>
+              <a class="text-link company-link" href="mailto:martin@gemcrm.io">Falar com o fundador</a>
+            </div>
+          </div>
+
+          <ul class="company-facts reveal reveal-delay" aria-label="Informações verificáveis da GemCRM">
+            <li>
+              <span>Produto</span>
+              <p>CRM omnichannel para equipes comerciais e de atendimento.</p>
+            </li>
+            <li>
+              <span>Estágio</span>
+              <p>MVP funcional em desenvolvimento ativo e evolução contínua.</p>
+            </li>
+            <li>
+              <span>Modelo</span>
+              <p>SaaS B2B com plano Free para validação e opções comerciais assistidas.</p>
+            </li>
+            <li>
+              <span>Responsável</span>
+              <p>Martin Lofrano de Oliveira, fundador e responsável pelo produto.</p>
+            </li>
+            <li>
+              <span>Base</span>
+              <p>Produto desenvolvido no Brasil para operações que precisam crescer com controle.</p>
+            </li>
+            <li>
+              <span>Contato</span>
+              <p><a href="mailto:martin@gemcrm.io">martin@gemcrm.io</a></p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
       <section class="section build-section">
         <div class="shell build-card reveal">
           <div class="build-status">
@@ -507,6 +578,7 @@
           </div>
           <div>
             <strong>Empresa</strong>
+            <a href="./about/">Sobre a GemCRM</a>
             <a href="mailto:martin@gemcrm.io">Contato</a>
             <a href="./privacy/">Privacidade</a>
             <a href="./terms/">Termos</a>

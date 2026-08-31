@@ -18,7 +18,7 @@ Abra `http://localhost:4173`.
 - `index.html`: landing page principal
 - `styles.css`: identidade visual e responsividade
 - `script.js`: menu móvel, header e animações progressivas
-- `privacy/`, `terms/` e `changelog/`: páginas institucionais
+- `about/`, `privacy/`, `terms/` e `changelog/`: páginas institucionais
 - `robots.txt` e `sitemap.xml`: descoberta por mecanismos de busca
 - `social-card.png`: imagem Open Graph
 
